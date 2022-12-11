@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click test</title>
+</head>
+<body style="background-color: bisque;">
+    <div class="scorebox"><p id="player" class="pemain"><br> <br> Player : </p><p id="score" class="score">Score player: 0 points</p><p>_______________</p><p id="score2" class="score"> Score computer: 0 points </p> <p id="komputer" class="pemain"><br> <br> Komputer : </p></div>
+
+    <div class="games">
+        <button id="batu" class="pilihan" onclick="bgk('BATU')"><p id="batu" class="batu">🪨</p></button>
+        <button id="gunting" class="pilihan" onclick="bgk('GUNTING')"><p id="gunting" class="gunting">✂️</p></button>
+        <button id="kertas" class="pilihan" onclick="bgk('KERTAS')"><p id="kertas" class="kertas">📜</p></button>
+    </div>
+    <a href="index.html" class="back"><button class="back2">Back</button></a>
+    <script>
+        let score = 0
+        let score2 = 0
+        let pilihan = ['BATU','GUNTING','KERTAS']
+        let computer = ''
+        let player = ''
+        function bgk(parameter) {
+            document.getElementById('player').innerHTML='<br> <br> Player: '+ parameter;
+            player = parameter;
+            
+            computer = pilihan[Math.floor(Math.random() * 3)];
+            document.getElementById('komputer').innerHTML='<br> <br> Komputer: '+ computer;
+        
+        if(computer ==='BATU'&& player ==='KERTAS'){
+            score += 1
+            document.getElementById('score').innerHTML="Score player: " + score + " points "
+        }
+        else if(computer ==='KERTAS'&& player ==='GUNTING'){
+            score += 1
+            document.getElementById('score').innerHTML="Score player: " + score + " points "
+        }
+        else if(computer ==='GUNTING'&& player ==='BATU'){
+            score += 1
+            document.getElementById('score').innerHTML="Score player: " + score + " points "
+        }
+        if(computer ==='BATU'&& player ==='GUNTING'){
+            score2 += 1
+            document.getElementById('score2').innerHTML="Score komputer: " + score2 + " points "
+        }
+        else if(computer ==='KERTAS'&& player ==='BATU'){
+            score2 += 1
+            document.getElementById('score2').innerHTML="Score komputer: " + score2 + " points "
+        }
+        else if(computer ==='GUNTING'&& player ==='KERTAS'){
+            score2 += 1
+            document.getElementById('score2').innerHTML="Score komputer: " + score2 + " points "
+        }
+        }
+
+    </script>
+    <style>
+        .scorebox{
+            justify-content: center;
+            display: flex;
+            border-style: solid ;
+            border-radius: 10px;
+            height: 100px;
+            width: 100%;
+            background-color: aquamarine;
+        }
+        .score{
+            text-align: center;
+            font-family: Franklin Gothic Medium;
+        }
+        .pilihan{
+            margin: 10px 15px;
+            text-align: center;
+            justify-content: center;
+            display: flex;
+            height: 100%;
+            width: 50%;
+            border-style: solid;
+            border-radius: 100px;
+            background-color: cadetblue;
+        }
+        .pilihan:active{
+            box-shadow: 0 5px 10px darkslategray
+        }
+        .batu{
+            font-size: 25px;
+            text-align: center;
+            font-family: Franklin Gothic Medium;
+        }
+        .gunting{
+            font-size: 25px;
+            text-align: center;
+            font-family: Franklin Gothic Medium;
+        }
+        .kertas{
+            font-size: 25px;
+            text-align: center;
+            font-family: Franklin Gothic Medium;
+        }
+        .games{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 15px;
+            padding: 25px;
+        }
+        .pil{
+            justify-content: center;
+            text-align: center;
+            display: inline-block;
+        }
+        .pemain{
+            font-family: verdana;
+            height: 20px;
+        }
+        .back{
+            position: absolute;
+            bottom: 0;
+            padding-left: 5px;
+            padding-bottom: 8px;
+        }
+        .back2{
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+    </style>
+</body>
+
+</html>
