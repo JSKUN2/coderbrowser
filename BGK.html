@@ -7,18 +7,19 @@
     <title>Click test</title>
 </head>
 <body style="background-color: bisque;">
-    <div class="scorebox"><p id="player" class="pemain"><br> <br> Player : </p><p id="score" class="score">Score player: 0 points</p><p>_______________</p><p id="score2" class="score"> Score computer: 0 points </p> <p id="komputer" class="pemain"><br> <br> Komputer : </p></div>
+    <div class="scorebox"><p id="player" class="pemain"><br> <br> Player : </p><p id="score" class="score">Score player: 0 points</p><p>_______________</p><p id="score2" class="score"> Score komputer: 0 points </p> <p id="komputer" class="pemain"><br> <br> Komputer : </p></div>
 
     <div class="games">
-        <button id="batu" class="pilihan" onclick="bgk('BATU')"><p id="batu" class="batu">🪨</p></button>
-        <button id="gunting" class="pilihan" onclick="bgk('GUNTING')"><p id="gunting" class="gunting">✂️</p></button>
-        <button id="kertas" class="pilihan" onclick="bgk('KERTAS')"><p id="kertas" class="kertas">📜</p></button>
+        <button id="batu" class="pilihan" onclick="bgk('🪨')"><p id="batu" class="batu">🪨</p></button>
+        <button id="gunting" class="pilihan" onclick="bgk('✂️')"><p id="gunting" class="gunting">✂️</p></button>
+        <button id="kertas" class="pilihan" onclick="bgk('📜')"><p id="kertas" class="kertas">📜</p></button>
     </div>
     <a href="index.html" class="back"><button class="back2">Back</button></a>
+    <div class="reset2"><button class="reset" onclick="reset()">RESET</button></div>
     <script>
         let score = 0
         let score2 = 0
-        let pilihan = ['BATU','GUNTING','KERTAS']
+        let pilihan = ['🪨','✂️','📜']
         let computer = ''
         let player = ''
         function bgk(parameter) {
@@ -28,30 +29,36 @@
             computer = pilihan[Math.floor(Math.random() * 3)];
             document.getElementById('komputer').innerHTML='<br> <br> Komputer: '+ computer;
         
-        if(computer ==='BATU'&& player ==='KERTAS'){
+        if(computer ==='🪨'&& player ==='📜'){
             score += 1
             document.getElementById('score').innerHTML="Score player: " + score + " points "
         }
-        else if(computer ==='KERTAS'&& player ==='GUNTING'){
+        else if(computer ==='📜'&& player ==='✂️'){
             score += 1
             document.getElementById('score').innerHTML="Score player: " + score + " points "
         }
-        else if(computer ==='GUNTING'&& player ==='BATU'){
+        else if(computer ==='✂️'&& player ==='🪨'){
             score += 1
             document.getElementById('score').innerHTML="Score player: " + score + " points "
         }
-        if(computer ==='BATU'&& player ==='GUNTING'){
+        if(computer ==='🪨'&& player ==='✂️'){
             score2 += 1
             document.getElementById('score2').innerHTML="Score komputer: " + score2 + " points "
         }
-        else if(computer ==='KERTAS'&& player ==='BATU'){
+        else if(computer ==='📜'&& player ==='🪨'){
             score2 += 1
             document.getElementById('score2').innerHTML="Score komputer: " + score2 + " points "
         }
-        else if(computer ==='GUNTING'&& player ==='KERTAS'){
+        else if(computer ==='✂️'&& player ==='📜'){
             score2 += 1
             document.getElementById('score2').innerHTML="Score komputer: " + score2 + " points "
         }
+        }
+        function reset(){
+            document.getElementById('score').innerHTML="Score player: 0 points"
+            document.getElementById('score2').innerHTML="Score komputer: 0 points"
+            document.getElementById('player').innerHTML="<br> <br> Player: "
+            document.getElementById('komputer').innerHTML="<br> <br> Komputer: " 
         }
 
     </script>
@@ -125,6 +132,18 @@
             color: white;
             border-radius: 10px;
             font-size: 15px;
+        }
+        .reset{
+            background-color: red;
+            color: gold;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+        .reset2{
+            position: absolute;
+            bottom: 0;
+            padding-bottom: 8px;
+            padding-left: 60px;
         }
     </style>
 </body>
