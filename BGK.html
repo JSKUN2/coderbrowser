@@ -8,14 +8,15 @@
     <link rel="icon" href="logo.ico">
 </head>
 <body style="background-color: bisque;">
-    <div class="scorebox"><p id="player" class="pemain"><br> <br> Player : </p><p id="score" class="score">Score player: 0 points</p><p>_______________</p><p id="score2" class="score"> Score komputer: 0 points </p> <p id="komputer" class="pemain"><br> <br> Komputer : </p></div>
+    <div><a href="index.html" class="back"><button class="back2">Back</button></a></body></div>
+    <div class="scorebox"><p id="player" class="pemain"><br> <br> <br> Player : </p><p id="score" class="score">Score player: 0 points</p><p>_______________</p><p id="score2" class="score"> Score komputer: 0 points </p> <p id="komputer" class="pemain"><br> <br> <br> Komputer : </p></div>
 
     <div class="games">
         <button id="batu" class="pilihan" onclick="bgk('🪨')"><p id="batu" class="batu">🪨</p></button>
         <button id="gunting" class="pilihan" onclick="bgk('✂️')"><p id="gunting" class="gunting">✂️</p></button>
         <button id="kertas" class="pilihan" onclick="bgk('📜')"><p id="kertas" class="kertas">📜</p></button>
     </div>
-    <a href="index.html" class="back"><button class="back2">Back</button></a>
+    
     <div class="reset2"><button class="reset" onclick="reset()">RESET</button></div>
     <script>
         let score = 0
@@ -24,11 +25,11 @@
         let computer = ''
         let player = ''
         function bgk(parameter) {
-            document.getElementById('player').innerHTML='<br> <br> Player: '+ parameter;
+            document.getElementById('player').innerHTML='<br> <br> <br> Player: '+ parameter;
             player = parameter;
             
             computer = pilihan[Math.floor(Math.random() * 3)];
-            document.getElementById('komputer').innerHTML='<br> <br> Komputer: '+ computer;
+            document.getElementById('komputer').innerHTML='<br> <br> <br> Komputer: '+ computer;
         
         if(computer ==='🪨'&& player ==='📜'){
             score += 1
@@ -58,8 +59,8 @@
         function reset(){
             document.getElementById('score').innerHTML="Score player: 0 points"
             document.getElementById('score2').innerHTML="Score komputer: 0 points"
-            document.getElementById('player').innerHTML="<br> <br> Player: "
-            document.getElementById('komputer').innerHTML="<br> <br> Komputer: " 
+            document.getElementById('player').innerHTML="<br> <br> <br> Player: "
+            document.getElementById('komputer').innerHTML="<br> <br> <br> Komputer: " 
         }
 
     </script>
@@ -72,6 +73,8 @@
             height: 100px;
             width: 100%;
             background-color: aquamarine;
+            padding-top: 7px;
+            height: 120px;
         }
         .score{
             text-align: center;
@@ -123,15 +126,12 @@
             height: 20px;
         }
         .back{
-            position: absolute;
-            bottom: 0;
             padding-left: 5px;
-            padding-bottom: 8px;
         }
         .back2{
             background-color: black;
             color: white;
-            border-radius: 10px;
+            border-radius: 3px;
             font-size: 15px;
         }
         .reset{
@@ -144,8 +144,7 @@
             position: absolute;
             bottom: 0;
             padding-bottom: 8px;
-            padding-left: 60px;
-        }
+                }
     </style>
 </body>
 
