@@ -57,6 +57,14 @@ body{
     margin: 10px;
     margin-left: 0;
 }
+@media screen and (max-width:769px){
+    .search{
+        width:75px;
+    }
+    .main img{
+        width:170px;
+    }
+}
 @keyframes animasiload {
     0% {
       transform: translateY(-100%);
