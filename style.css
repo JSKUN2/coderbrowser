@@ -63,9 +63,7 @@ body{
     }
     .main img{
         width:170px;
-    }
-    .main{
-        margin-top:600px;
+        margin-top:500px;
     }
 }
 @keyframes animasiload {
