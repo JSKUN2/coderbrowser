@@ -67,6 +67,7 @@ body{
     .main{
         margin:0;
         justify-content:center;
+        margin-buttom: 200px;
     }
 }
 @keyframes animasiload {
