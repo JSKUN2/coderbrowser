@@ -59,10 +59,13 @@ body{
 }
 @media screen and (max-width:769px){
     .search{
-        width:80%;
+        width:90%;
     }
     .main img{
         width:170px;
+    }
+    .main{
+        margin-top: 100px;
     }
 }
 @keyframes animasiload {
