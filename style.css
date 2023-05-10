@@ -59,7 +59,7 @@ body{
 }
 @media screen and (max-width:769px){
     .search{
-        width:75%;
+        width:80%;
     }
     .main img{
         width:170px;
