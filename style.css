@@ -65,7 +65,7 @@ body{
         width:170px;
     }
     .main{
-        transform: translateY(25%);
+        margin-top:600px;
     }
 }
 @keyframes animasiload {
