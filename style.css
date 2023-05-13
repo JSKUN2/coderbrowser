@@ -63,7 +63,7 @@ body{
     }
     .main img{
         width:170px;
-        margin-top:10%;
+        margin:0 auto;
     }
 }
 @keyframes animasiload {
@@ -74,4 +74,5 @@ body{
       transform: translateY(0);
     }
   }
+  
   
