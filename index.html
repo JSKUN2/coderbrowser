@@ -14,13 +14,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.19.2/dist/js/mdb.min.js"></script>
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWJTB6V8YM"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LWJTB6V8YM');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+  
+        gtag('config', 'G-LWJTB6V8YM');
     </script>
 </head>
 <body>
@@ -94,18 +93,15 @@
             $("#gfg").html(data.ip);
         })
         var OSName = "Unknown OS";
-
-        if (navigator.userAgent.indexOf("Win") != -1) {
-            OSName = "Windows:";
-        } else if (navigator.userAgent.indexOf("Mac") != -1) {
-            OSName = "MacOS:";
-        } else if (navigator.userAgent.indexOf("Linux") != -1) {
-            OSName = "Linux:";
-        } else if (navigator.userAgent.indexOf("Android") != -1) {
-            OSName = "Android:";
-        } else if (navigator.userAgent.indexOf("iOS") != -1) {
-            OSName = "iOS:";
-        }
+        if (window.navigator.userAgent.indexOf("Windows NT 10.0")!= -1) OSName="Windows 10:";
+        if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSName="Windows 8:";
+        if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSName="Windows 7:";
+        if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSName="Windows Vista:";
+        if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSName="Windows XP:";
+        if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSName="Windows 2000:";
+        if (window.navigator.userAgent.indexOf("Mac") != -1) OSName="Mac/iOS:";
+        if (window.navigator.userAgent.indexOf("X11") != -1) OSName="UNIX:";
+        if (window.navigator.userAgent.indexOf("Linux") != -1) OSName="Linux:";
 
         document.getElementById("os").innerHTML = OSName;
     </script>
