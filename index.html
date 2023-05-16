@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.19.2/dist/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.19.2/dist/js/mdb.min.js"></script>
@@ -28,7 +29,7 @@
             </div>
             <div class="day">
         </div>
-        <div style="position: absolute; right: 0; top: 0; margin: 10px; display: flex; flex-direction: row;">
+        <div style="position: absolute; right: 0; top: 0; margin: 10px; display: flex; flex-direction: column; text-align: end;">
         <p id="os" style="margin-right: 5px;"></p>
         <p id="ip"></p>
         </div>
@@ -36,14 +37,27 @@
             <img src="logo.svg" alt="">
                 <div class="search">
                     <div class="input-group">
-                        <span class="input-group-text" id="addon-wrapping">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                          </svg>
+                        <span class="input-group-text btn-group" id="addon-wrapping">
+                            <button id="type" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; margin:0; color: gray; padding: 1px;">
+                                <svg id="myImage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                  </svg>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown-item" onclick="search()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                              </svg> Search</li>
+                              <li class="dropdown-item" onclick="kalku()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+                                <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                                <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
+                              </svg> Kalkulator</li>
+                            </ul>
                         </span>
                         <input type="text" class="form-control" placeholder="Cari di sini" id="input">
+                        <input type="text" class="form-control" placeholder="Masukkan angka" id="kalku" style="display:none;">
                         <span class="input-group-text" id="addon-wrapping">
-                            <button type="button" class="btn-close" aria-label="Close" onclick="hapusInput()"></button>
+                            <button type="button" class="btn-close" aria-label="Close" onclick="hapusInput()" id="close"></button>
+                            <p id="output" style="display:none; margin: 0; text-align: center;">0</p>
                         </span>
                     </div>
                 </div>
@@ -73,15 +87,51 @@
         setInterval(updateClock, 1000);
 
 
-        let query = document.querySelector('.form-control');
+        let query = document.getElementById('input');
 
         window.addEventListener('keydown', checkKeyPress, false)
+        function kalku() {
+            var image = document.getElementById("myImage");
+            image.innerHTML = '<path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/> <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>';
+            image.classList.add("bi", "bi-calculator");
+            var input = document.getElementById("input");
+            var kalku = document.getElementById("kalku");
+            var button = document.getElementById("close");
+            var output = document.getElementById("output");
+            input.value = "";
+            input.style.display = "none";
+            kalku.style.display = "block";
+            button.style.display = "none";
+            output.style.display = "block";
 
+        }
+        function search() {
+            var image = document.getElementById("myImage");
+            image.innerHTML = '<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>';
+            image.classList.remove("bi", "bi-calculator");
+            image.classList.add("bi", "bi-search");
+            var input = document.getElementById("input");
+            var kalku = document.getElementById("kalku");
+            var button = document.getElementById("close");
+            var output = document.getElementById("output");
+            kalku.value = "";
+            input.style.display = "block";
+            kalku.style.display = "none";
+            button.style.display = "block";
+            output.style.display = "none";
+        }
         function checkKeyPress(key){
             if (key.keyCode == '13'){
-                let url = 'https://duckduckgo.com/?va=&t=h&q='+query.value
-                window.open(url,'_self');
-
+                if (document.getElementById("input").value !== ""){
+                    let url = 'https://duckduckgo.com/?va=&t=h&q='+query.value;
+                    window.open(url,'_self');
+                }
+                if (document.getElementById("input").value === ""){
+                    var kalku = document.getElementById("kalku").value;
+                    var output = document.getElementById("output");
+                    hasil = eval(kalku);
+                    output.innerHTML = hasil;
+                }
             }
         }
         function hapusInput() {
