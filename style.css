@@ -81,7 +81,7 @@ body{
         flex-direction: column;
     }
     .main img{
-        margin-top:10%;
+        margin-top:25%;
     }
 }
 @keyframes animasiload {
