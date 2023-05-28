@@ -86,7 +86,7 @@ body{
 }
 @keyframes animasiload {
     0% {
-      transform: translateY(-100%);
+      transform: translateY(-40%);
     }
     100% {
       transform: translateY(0);
