@@ -77,14 +77,13 @@ body{
         height: 50%;
     }
     .main img{
-        margin-top: 30%;
-        width: 250px;
+        margin-top: 5%;
     }
     .info{
-        font-size: 25px;
+        font-size: 18px;
     }
     .form-control::placeholder{
-        font-size: 20px;
+        font-size: 18px;
     }
   }
 @media  screen and (max-width: 768px) {
