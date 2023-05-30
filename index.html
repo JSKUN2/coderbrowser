@@ -51,17 +51,25 @@
                                 <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
                                 <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
                               </svg> Kalkulator</li>
+                              <li class="dropdown-item" onclick="crypto()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-bitcoin" viewBox="0 0 16 16">
+                                <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28V4.487zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927V8.539z"/>
+                              </svg> Crypto</li>
                             </ul>
                         </span>
+                        <div class="form-control" style="display: none;" id="crypto"><p style="margin:0;">Bitcoin= <span id="bitcoinPrice"></span> $</p><p style="margin:0;">Ethereum= <span id="ethereumPrice"></span> $</p>
+                        </div>
                         <input type="text" class="form-control" placeholder="Cari di sini" id="input">
                         <input type="text" class="form-control" placeholder="Masukkan angka" id="kalku" style="display:none;">
                         <span class="input-group-text" id="addon-wrapping">
                             <button type="button" class="btn-close" aria-label="Close" onclick="hapusInput()" id="close"></button>
                             <p id="output" style="display:none; margin: 0; text-align: center;">0</p>
+                            <p id="currency" style="display: flex; margin: 0; flex-direction: column;">
+                            </p>
                         </span>
                     </div>
                 </div>
         </div>
+
     </div>
     <script>
         var time = document.querySelector('.time');
@@ -90,6 +98,26 @@
         let query = document.getElementById('input');
 
         window.addEventListener('keydown', checkKeyPress, false)
+        function crypto() {
+            var image = document.getElementById("myImage");
+            image.innerHTML = '<path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28V4.487zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927V8.539z"/>';
+            image.classList.add("bi", "bi-calculator");
+            var input = document.getElementById("input");
+            var kalku = document.getElementById("kalku");
+            var button = document.getElementById("close");
+            var output = document.getElementById("output");
+            var crypto = document.getElementById("crypto");
+            var elements = document.getElementsByClassName('search');
+            input.value = "";
+            input.style.display = "none";
+            kalku.style.display = "none";
+            button.style.display = "none";
+            output.style.display = "none";
+            crypto.style.display = "block";
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.width = '25%';
+            }
+        }
         function kalku() {
             var image = document.getElementById("myImage");
             image.innerHTML = '<path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/> <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>';
@@ -98,12 +126,17 @@
             var kalku = document.getElementById("kalku");
             var button = document.getElementById("close");
             var output = document.getElementById("output");
+            var crypto = document.getElementById("crypto");
+            var elements = document.getElementsByClassName('search');
             input.value = "";
             input.style.display = "none";
             kalku.style.display = "block";
             button.style.display = "none";
             output.style.display = "block";
-
+            crypto.style.display = "none";
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.width = '60%';
+            }
         }
         function search() {
             var image = document.getElementById("myImage");
@@ -114,12 +147,17 @@
             var kalku = document.getElementById("kalku");
             var button = document.getElementById("close");
             var output = document.getElementById("output");
+            var crypto = document.getElementById("crypto");
+            var elements = document.getElementsByClassName('search');
             kalku.value = "";
             input.style.display = "block";
             kalku.style.display = "none";
             button.style.display = "block";
             output.style.display = "none";
-            output.innerHTML = "0"
+            crypto.style.display = "none";
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.width = '60%';
+            }
         }
         function checkKeyPress(key){
             if (key.keyCode == '13'){
@@ -154,6 +192,21 @@
         if (window.navigator.userAgent.indexOf("Linux") != -1) OSName="Linux:";
 
         document.getElementById("os").innerHTML = OSName;
+            $(document).ready(function() {
+                var bitcoin = 0;
+                var ethereum = 0;
+                $.ajax({
+                    url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum&vs_currencies=usd',
+                    dataType: 'json',
+                    success: function(data) {
+                        bitcoin = data.bitcoin.usd;
+                        ethereum = data.ethereum.usd;
+                        document.getElementById("bitcoinPrice").innerHTML = bitcoin;
+                        document.getElementById("ethereumPrice").innerHTML = ethereum;
+                    }
+                });
+
+            });
     </script>
 </body>
 </html>
