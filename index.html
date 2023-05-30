@@ -168,7 +168,12 @@
                 if (document.getElementById("input").value === ""){
                     var kalku = document.getElementById("kalku").value;
                     var output = document.getElementById("output");
-                    hasil = eval(kalku);
+                    if(kalku !== ""){
+                        hasil = eval(kalku);
+                    }
+                    else{
+                        hasil = 0;
+                    }
                     output.innerHTML = hasil;
                 }
             }
