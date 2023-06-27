@@ -10,7 +10,6 @@ body{
     background-position: center;
     margin: 0;
     overflow: hidden;
-    overflow: hidden;
 }
 .search{
     position: relative;
@@ -41,22 +40,12 @@ body{
 }
 
 .info{
+    position: sticky;
+    top: 0;
     color: white;
     font-family: 'Libre Baskerville', serif;
-    font-size: 17px;
+    font-size: 18px;
     margin: 10px;
-}
-.icons{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    text-align: center;
-    justify-content: left;
-    pointer-events: none;
-    margin: 10px;
-    margin-left: 0;
 }
 .harga{
     display: flex;
@@ -70,6 +59,10 @@ body{
     display: flex; 
     flex-direction: row; 
     text-align: end;
+}
+#close:hover{
+    width: 8px;
+    height: 8px;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
     .search{
