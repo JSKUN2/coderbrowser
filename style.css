@@ -51,15 +51,6 @@ body{
     display: flex;
     flex-direction: row;
 }
-.client{
-    position: absolute; 
-    right: 0; 
-    top: 0; 
-    margin: 10px; 
-    display: flex; 
-    flex-direction: row; 
-    text-align: end;
-}
 #close:hover{
     transform:scale(0.8);
 }
@@ -88,8 +79,23 @@ body{
     .main img{
         margin-top:10%;
     }
-    .client{
+}
+@media  screen and (max-width: 768px) and (orientation: landscape) {
+    .search{
+        width: 95%;
+    }
+    .section2{
         flex-direction: column;
+    }
+    .main{
+        margin-top:0;
+    }
+    .main img{
+        margin-top:0;
+        width: 140px;
+    }
+    .info{
+        margin-bottom:0px;
     }
 }
 @keyframes animasiload {
