@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+:root{
+    --white: white;
+}
 html{
     animation: 1s ease-out 0s 1 animasiload;
 }
 body{
-    background-color: #072233;
     background-image: url(bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;    
     background-position: center;
     margin: 0;
     overflow: hidden;
+    display: grid;
 }
 .search{
     position: relative;
@@ -42,7 +45,7 @@ body{
 .info{
     position: sticky;
     top: 0;
-    color: white;
+    color: var(--white);
     font-family: 'Libre Baskerville', serif;
     font-size: 18px;
     margin: 10px;
