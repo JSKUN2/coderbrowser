@@ -2,9 +2,6 @@
 :root{
     --white: white;
 }
-html{
-    animation: 1s ease-out 0s 1 animasiload;
-}
 body{
     background-image: url(bg.jpg);
     background-repeat: no-repeat;
@@ -113,11 +110,3 @@ body{
         margin-bottom:0px;
     }
 }
-@keyframes animasiload {
-    0% {
-      transform: translateY(-40%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
