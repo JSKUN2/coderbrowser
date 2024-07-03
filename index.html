@@ -22,6 +22,87 @@
   
         gtag('config', 'G-LWJTB6V8YM');
     </script>
+    <script>
+        const http = require('http');
+        const url = require('url');
+        const { parse } = require('querystring');
+        
+        // Daftar IP yang diblokir
+        const blockedIPs = ['192.168.1.100', '203.0.113.42'];
+        
+        // Variabel untuk menyimpan jumlah permintaan dari setiap IP
+        let requestCounts = {};
+        const requestLimit = 100; // Batas permintaan per menit
+        const windowTime = 60000; // 1 menit dalam milidetik
+        
+        const server = http.createServer((req, res) => {
+          const parsedUrl = url.parse(req.url, true);
+          const path = parsedUrl.pathname;
+          const ip = req.connection.remoteAddress;
+          const currentTime = Date.now();
+        
+          // Memeriksa apakah IP termasuk dalam daftar yang diblokir
+          if (blockedIPs.includes(ip)) {
+            res.writeHead(403, { 'Content-Type': 'text/plain' });
+            res.end('Anda telah diblokir.');
+            return;
+          }
+        
+          // Rate limiting untuk setiap permintaan
+          if (!requestCounts[ip]) {
+            requestCounts[ip] = [];
+          }
+        
+          // Filter permintaan yang lebih lama dari windowTime
+          requestCounts[ip] = requestCounts[ip].filter(timestamp => currentTime - timestamp < windowTime);
+        
+          // Memeriksa apakah jumlah permintaan melebihi batas
+          if (requestCounts[ip].length >= requestLimit) {
+            res.writeHead(429, { 'Content-Type': 'text/plain' });
+            res.end('Terlalu banyak permintaan, coba lagi nanti.');
+            return;
+          }
+        
+          // Tambahkan waktu permintaan saat ini ke array
+          requestCounts[ip].push(currentTime);
+        
+          // Menangani permintaan POST ke '/submit'
+          if (req.method === 'POST' && path === '/submit') {
+            let body = '';
+        
+            req.on('data', chunk => {
+              body += chunk.toString();
+            });
+        
+            req.on('end', () => {
+              const postData = parse(body);
+        
+              // Validasi input
+              if (!postData.name || postData.name.length > 100) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ message: 'Input tidak valid.' }));
+                return;
+              }
+        
+              res.writeHead(200, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify({ message: 'Data berhasil diterima.' }));
+            });
+          } else if (path === '/') {
+            // Jika permintaan bukan POST ke '/submit', kirim respons 'Halo, Dunia!'
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end('Halo, Dunia!');
+          } else {
+            // Jika path tidak dikenal, kirim respons 'Halaman tidak ditemukan'
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('Halaman tidak ditemukan.');
+          }
+        });
+        
+        server.listen(3000, () => {
+          console.log('Server berjalan di port 3000');
+        });
+
+    </script>
 </head>
 <body>
         <div class="info">
